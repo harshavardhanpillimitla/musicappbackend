@@ -149,7 +149,7 @@ REST_USE_JWT = True
 CORS_ORIGIN_ALLOW_ALL =True
 CORS_ORIGIN_WHITELIST = [
   
-    "http://localhost:9000"
+    'https://employeeapifrontend.netlify.app/'
 ]
 CORS_ALLOW_HEADERS = [
     'accept',
