@@ -28,6 +28,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class PostViewset(viewsets.ModelViewSet):
     parser_classes = (MultiPartParser, FormParser)
+    permission_classes = [permissions.IsAuthenticated]
     
  
         
