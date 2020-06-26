@@ -166,3 +166,5 @@ AUTH_USER_MODEL = 'api.User'
 TOKEN_EXPIRED_AFTER_SECONDS = 86400
 STATIC_URL = '/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'static')
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
