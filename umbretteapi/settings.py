@@ -146,7 +146,7 @@ REST_FRAMEWORK = {
 REST_USE_JWT = True
 
 
-CORS_ORIGIN_ALLOW_ALL =True
+CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
   
     'https://employeeapifrontend.netlify.app'
