@@ -16,9 +16,41 @@ class User(AbstractUser):
 
 
 
-class Post(models.Model):
+# class Post(models.Model):
+#     user = models.ForeignKey(User,on_delete=models.CASCADE)
+#     name = models.TextField()
+#     latitude = models.FloatField()
+#     longitutude = models.FloatField()
+#     picture = models.ImageField(default="NULL",upload_to='posts_img')
+
+
+class Song(models.Model):
+    song_name = models.TextField()
+    def __str__(self):
+        return self.song_name
+
+
+class Userplaylist(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    name = models.TextField()
-    latitude = models.FloatField()
-    longitutude = models.FloatField()
-    picture = models.ImageField(default="NULL",upload_to='posts_img')
+    playlist_name= models.TextField()
+    def __str__(self):
+        return self.playlist_name
+
+
+
+class PlaylistAddedsongs(models.Model):
+    playlist_name = models.ForeignKey(Userplaylist,on_delete=models.CASCADE)
+    playlistsongs = models.ManyToManyField(Song,related_name='playlistsong')
+
+
+class PlaylistPermission(models.Model):
+    creator = models.ForeignKey(User,on_delete=models.CASCADE,related_name="author")
+    playlist = models.ForeignKey(Userplaylist,on_delete=models.CASCADE)
+    user_permitted = models.ManyToManyField(User,related_name="permissionsgiven",blank=True,null=True)
+
+    
+
+
+    
+
+

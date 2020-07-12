@@ -141,6 +141,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         
     ),
+    # 'DEFAULT_FILTER_BACKENDS': (
+    #     'rest_framework_filters.backends.DjangoFilterBackend',
+    # ),
 }
 
 REST_USE_JWT = True
@@ -149,7 +152,9 @@ REST_USE_JWT = True
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
   
-    'https://employeeapifrontend.netlify.app'
+    
+    'http://localhost:3000',
+    'https://musicpro.netlify.app/'
 ]
 CORS_ALLOW_HEADERS = [
     'accept',

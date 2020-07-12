@@ -1,10 +1,12 @@
 from rest_framework import serializers
-from api.models import User,Post
+from api.models import User,Song,Userplaylist,PlaylistAddedsongs,PlaylistPermission
+import json
+from rest_framework import generics
 
 
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
    
 
     class Meta:
@@ -43,26 +45,62 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 
-class PostSerializer(serializers.ModelSerializer):
+# class PostSerializer(serializers.ModelSerializer):
    
     
-    # def create(self,validated_data):
+#     # def create(self,validated_data):
         
         
 
-    #     post=Post.objects.create(
-    #         user = self.request.user,
-    #         name = validated_data['name'],
-    #         latitude= validated_data['latitude'],
-    #         longitutude= validated_data['longitutude'],
-    #         picture = validated_data['picture']
-    #     )
+#     #     post=Post.objects.create(
+#     #         user = self.request.user,
+#     #         name = validated_data['name'],
+#     #         latitude= validated_data['latitude'],
+#     #         longitutude= validated_data['longitutude'],
+#     #         picture = validated_data['picture']
+#     #     )
         
-    #     post.save()
-    #     return post
+#     #     post.save()
+#     #     return post
+
+#     class Meta:
+#         model = Post
+#         fields = ['id','name','latitude','longitutude','picture']
+
+class SongSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Song
+        fields='__all__'
+
+
+class UserplaylistSerializer(serializers.ModelSerializer):
+    class Meta:
+        
+        model =  Userplaylist
+        fields=['playlist_name','id']
+   
+
+
+class PlaylistAddedsongsSerializer(serializers.ModelSerializer):
+  
 
     class Meta:
-        model = Post
-        fields = ['id','name','latitude','longitutude','picture']
+        model = PlaylistAddedsongs
+        fields = '__all__'
+
+
+class PlaylistsongslistSerializer(serializers.ModelSerializer):
+  
+    playlistsongs = SongSerializer(many=True)
+    class Meta:
+        model = PlaylistAddedsongs
+        fields = '__all__'
+   
+
+
+class PlaylistpermissionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PlaylistPermission
+        fields = '__all__'
     
    

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
-from .models import User,Post
+from .models import User,Userplaylist,Song,PlaylistAddedsongs,PlaylistPermission
 
 
 
@@ -18,4 +18,8 @@ class UserAdmin(BaseUserAdmin):
     )
 
   
-admin.site.register(Post)
+# admin.site.register(Post)
+admin.site.register(Song)
+admin.site.register(Userplaylist)
+admin.site.register(PlaylistAddedsongs)
+admin.site.register(PlaylistPermission)
