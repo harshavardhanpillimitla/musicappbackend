@@ -9,12 +9,13 @@ router.register(r'song', SongViewSet,basename="song")
 router.register(r'createplaylist',  UserplaylistViewSet,basename="createplaylist")
 router.register(r'addtoplaylist', PlaylistAddedsongsViewSet,basename="addtoplaylist")
 router.register(r'follow', PlaylistPermissionViewSet,basename="follow")
+router.register(r'playlist', playlistsongsview,basename="playlist")
 
 
 
 urlpatterns = [url(r'^', include(router.urls)),
 url(r'^auth/', include('rest_auth.urls')),
-path('playlist/<int:pk>/', playlistsongsview.as_view())
+# path('playlist/<int:pk>/', playlistsongsview.as_view())
 ]
 
 

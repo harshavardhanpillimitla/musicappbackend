@@ -83,8 +83,9 @@ class PlaylistAddedsongsViewSet(viewsets.ModelViewSet):
     queryset = PlaylistAddedsongs.objects.all()
 
 
-class playlistsongsview(generics.RetrieveAPIView):
-    lookup_field='pk'
+class playlistsongsview(viewsets.ModelViewSet):
+    
+    
     serializer_class= PlaylistsongslistSerializer
     queryset=PlaylistAddedsongs.objects.all()
 

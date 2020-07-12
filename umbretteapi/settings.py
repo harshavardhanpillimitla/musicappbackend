@@ -154,7 +154,8 @@ CORS_ORIGIN_WHITELIST = [
   
     
     
-    'https://musicpro.netlify.app'
+    'https://musicpro.netlify.app',
+    'http://localhost:3000'
 ]
 CORS_ALLOW_HEADERS = [
     'accept',

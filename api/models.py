@@ -39,7 +39,7 @@ class Userplaylist(models.Model):
 
 
 class PlaylistAddedsongs(models.Model):
-    playlist_name = models.ForeignKey(Userplaylist,on_delete=models.CASCADE)
+    playlist_name = models.OneToOneField(Userplaylist,on_delete=models.CASCADE,unique=True,null=False)
     playlistsongs = models.ManyToManyField(Song,related_name='playlistsong')
 
 

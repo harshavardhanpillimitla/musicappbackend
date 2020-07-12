@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('url', 'email', 'first_name', 'last_name', 'password')
+        fields = ('email', 'first_name', 'last_name', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -90,7 +90,7 @@ class PlaylistAddedsongsSerializer(serializers.ModelSerializer):
 
 
 class PlaylistsongslistSerializer(serializers.ModelSerializer):
-  
+    playlist_name = UserplaylistSerializer()
     playlistsongs = SongSerializer(many=True)
     class Meta:
         model = PlaylistAddedsongs
