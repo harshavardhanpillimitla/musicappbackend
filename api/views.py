@@ -70,7 +70,7 @@ class UserplaylistViewSet(viewsets.ModelViewSet):
         a= Userplaylist.objects.all().filter(Q(user=self.request.user) | Q(playlist_name = b))
     
 
-        return a
+        return Userplaylist.objects.all()
 
 
 class PlaylistAddedsongsViewSet(viewsets.ModelViewSet):
