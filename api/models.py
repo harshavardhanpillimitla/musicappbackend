@@ -40,7 +40,7 @@ class Userplaylist(models.Model):
 
 class PlaylistAddedsongs(models.Model):
     playlist_name = models.OneToOneField(Userplaylist,on_delete=models.CASCADE,unique=True,null=False)
-    playlistsongs = models.ManyToManyField(Song,related_name='playlistsong')
+    playlistsongs = models.ManyToManyField(Song,related_name='playlistsong',blank=true)
 
 
 class PlaylistPermission(models.Model):
