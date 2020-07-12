@@ -64,10 +64,14 @@ class UserplaylistViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
     def get_queryset(self):
-        # b= PlaylistPermission.objects.filter(user_permitted = self.request.user )[0].playlist
+        if(PlaylistPermission.objects.filter(user_permitted = self.request.user )):
+
+            b= PlaylistPermission.objects.filter(user_permitted = self.request.user )[0].playlist
+            
         
-     
-        # a= Userplaylist.objects.all().filter(Q(user=self.request.user) | Q(playlist_name = b))
+            a= Userplaylist.objects.all().filter(Q(user=self.request.user) | Q(playlist_name = b))
+            
+            return a
     
 
         return Userplaylist.objects.all()
